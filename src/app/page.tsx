@@ -17,44 +17,159 @@ interface Question {
 }
 
 const SAMPLE_EXAM = {
-  id: "sample",
-  title: "IGCSE Computer Science - Paper 1 (Sample)",
-  description: "A sample collection of questions from Paper 1 (Theory) based on actual IGCSE standards.",
-  totalMarks: 7,
+  id: "igcse_cs_p1_2025",
+  title: "IGCSE Computer Science - Paper 1 (Theory)",
+  description: "Comprehensive assessment covering Data Representation, CPU Architecture, and Security.",
+  totalMarks: 75,
+  durationMinutes: 105,
   questions: [
     {
       id: "q1",
-      text: "Which of the following statements about Assembly Language is correct?",
-      type: "multiple-choice",
-      marks: 1,
-      options: [
-        "It is a high-level language that is easy for humans to read.",
-        "It is translated into machine code using a compiler.",
-        "It is a low-level language that uses mnemonics to represent machine instructions.",
-        "It allows for the same code to be run on any type of processor without modification."
-      ],
-      correctAnswer: "It is a low-level language that uses mnemonics to represent machine instructions.",
+      text: "Explain the purpose of the Central Processing Unit (CPU) in a computer system.",
+      type: "text",
+      marks: 2,
+      correctAnswer: "To process data and instructions that make the system operate. It carries out the fetch-decode-execute cycle.",
     },
     {
       id: "q2",
-      text: "Convert the Denary number 107 into an 8-bit binary number.",
+      text: "Convert the 8-bit binary number 01001011 to denary.",
       type: "binary",
       marks: 1,
-      correctAnswer: "01101011",
+      correctAnswer: "75",
     },
     {
       id: "q3",
-      text: "A processor uses a 12-bit register. What is the largest Hexadecimal value that can be stored?",
-      type: "hex",
+      text: "Convert the denary number 38 into an 8-bit binary register.",
+      type: "binary",
       marks: 1,
-      correctAnswer: "FFF",
+      correctAnswer: "00100110",
     },
     {
       id: "q4",
-      text: "Complete the truth table for an AND logic gate.",
+      text: "Convert the hexadecimal value 3A to denary.",
+      type: "hex",
+      marks: 1,
+      correctAnswer: "58",
+    },
+    {
+      id: "q5",
+      text: "Convert the denary number 165 to hexadecimal.",
+      type: "hex",
+      marks: 1,
+      correctAnswer: "A5",
+    },
+    {
+      id: "q6",
+      text: "State the name of the logic gate that outputs 0 ONLY when both inputs are 1.",
+      type: "multiple-choice",
+      marks: 1,
+      options: ["AND", "OR", "NAND", "NOR", "XOR"],
+      correctAnswer: "NAND",
+    },
+    {
+      id: "q7",
+      text: "Complete the truth table for an XOR gate with two inputs (A, B).",
       type: "logic-gate",
       marks: 4,
-      correctAnswer: { "0,0": "0", "0,1": "0", "1,0": "0", "1,1": "1" },
+      correctAnswer: { "0,0": "0", "0,1": "1", "1,0": "1", "1,1": "0" },
+    },
+    {
+      id: "q8",
+      text: "Identify three internal components of a Central Processing Unit (CPU).",
+      type: "text",
+      marks: 3,
+      correctAnswer: "ALU, CU, Registers",
+    },
+    {
+      id: "q9",
+      text: "Explain the role of the Program Counter (PC) in the fetch-execute cycle.",
+      type: "text",
+      marks: 2,
+      correctAnswer: "It stores the memory address of the next instruction to be fetched.",
+    },
+    {
+      id: "q10",
+      text: "Identify two input devices that would be used in an automated home security system.",
+      type: "text",
+      marks: 2,
+      correctAnswer: "PIR sensor, Camera, Microphone",
+    },
+    {
+      id: "q11",
+      text: "Define Half-duplex data transmission.",
+      type: "multiple-choice",
+      marks: 1,
+      options: [
+        "Data travels in one direction only.",
+        "Data travels in both directions simultaneously.",
+        "Data travels in both directions but not at the same time.",
+        "Data is sent using multiple wires at once."
+      ],
+      correctAnswer: "Data travels in both directions but not at the same time.",
+    },
+    {
+      id: "q12",
+      text: "State two advantages of Serial data transmission over Parallel data transmission.",
+      type: "text",
+      marks: 2,
+      correctAnswer: "Less risk of data skewing; Less interference; Cheaper.",
+    },
+    {
+      id: "q13",
+      text: "Explain the difference between RAM and ROM in terms of volatility.",
+      type: "text",
+      marks: 2,
+      correctAnswer: "RAM is volatile (lost on power off) while ROM is non-volatile.",
+    },
+    {
+      id: "q14",
+      text: "Describe how a Firewall helps protect a network.",
+      type: "text",
+      marks: 3,
+      correctAnswer: "It monitors and filters incoming/outgoing traffic based on rules.",
+    },
+    {
+      id: "q15",
+      text: "Distinguish between phishing and pharming.",
+      type: "text",
+      marks: 4,
+      correctAnswer: "Phishing uses fake emails; Pharming redirects via DNS/malware.",
+    },
+    {
+      id: "q16",
+      text: "Explain one benefit of using a Solid State Drive (SSD) instead of a Hard Disk Drive (HDD).",
+      type: "text",
+      marks: 2,
+      correctAnswer: "Faster read/write speeds; More durable; Uses less power.",
+    },
+    {
+      id: "q17",
+      text: "Identify the shape of the AND logic gate.",
+      type: "multiple-choice",
+      marks: 1,
+      options: ["D-shaped", "Arrow-head shaped", "Triangle", "Rectangle"],
+      correctAnswer: "D-shaped",
+    },
+    {
+      id: "q18",
+      text: "Calculate the value of 10 MiB in KiB.",
+      type: "text",
+      marks: 1,
+      correctAnswer: "10240",
+    },
+    {
+      id: "q19",
+      text: "What is the primary purpose of an IP address?",
+      type: "text",
+      marks: 1,
+      correctAnswer: "To uniquely identify a device on a network.",
+    },
+    {
+      id: "q20",
+      text: "Explain what is meant by 'Lossy compression'.",
+      type: "text",
+      marks: 2,
+      correctAnswer: "Removing data permanently to reduce file size.",
     }
   ] as Question[],
 };
@@ -63,26 +178,28 @@ export default function Home() {
   const [gameState, setGameState] = useState<'welcome' | 'exam' | 'result'>('welcome');
   const [user, setUser] = useState({ name: '', email: '' });
   const [results, setResults] = useState<any>(null);
+  const [activeQuestions, setActiveQuestions] = useState<Question[]>([]);
   const [isSendingEmail, setIsSendingEmail] = useState(false);
 
   const startExam = (e: React.FormEvent) => {
     e.preventDefault();
     if (user.name && user.email) {
+      // Randomly shuffle questions for "Random Exam Generation" simulation
+      const shuffled = [...SAMPLE_EXAM.questions].sort(() => 0.5 - Math.random());
+      setActiveQuestions(shuffled);
       setGameState('exam');
     }
   };
 
   const handleComplete = async (answers: any[]) => {
     const totalScore = answers.reduce((acc, curr) => acc + curr.marksAwarded, 0);
+    const maxMarks = activeQuestions.reduce((acc, q) => acc + q.marks, 0);
     setResults({
       answers,
       score: totalScore,
-      total: SAMPLE_EXAM.totalMarks,
+      total: maxMarks,
     });
     setGameState('result');
-
-    // In a real app, we'd save to Convex here:
-    // await saveResult({ userId: 'anon', ...user, examId: SAMPLE_EXAM.id, score: totalScore, ... })
   };
 
   const sendEmail = async () => {
@@ -154,6 +271,10 @@ export default function Home() {
             >
               <form onSubmit={startExam} className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-xl space-y-6">
                 <div className="space-y-4">
+                  <div className="flex items-center justify-between px-2 text-[10px] text-white/30 font-mono uppercase tracking-widest">
+                    <span>Duration: 1h 45m</span>
+                    <span>Marks: {SAMPLE_EXAM.totalMarks}</span>
+                  </div>
                   <div>
                     <label className="block text-sm font-medium text-white/50 mb-2 uppercase tracking-wider">Candidate Name</label>
                     <input 
@@ -194,9 +315,15 @@ export default function Home() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <ExamEngine questions={SAMPLE_EXAM.questions} onComplete={handleComplete} />
+              <ExamEngine 
+                questions={activeQuestions} 
+                durationMinutes={SAMPLE_EXAM.durationMinutes}
+                onComplete={handleComplete} 
+              />
             </motion.div>
           )}
+
+
 
           {gameState === 'result' && (
             <motion.div
