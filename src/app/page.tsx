@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GraduationCap, Award, Mail, BrainCircuit, Play, Sparkles } from 'lucide-react';
+import { GraduationCap, Award, Mail, BrainCircuit, Play, Sparkles, ExternalLink, Globe, Search, Users, Library } from 'lucide-react';
 import ExamEngine from '@/components/ExamEngine';
 
 // Seeded sample for demo if Convex is not ready
@@ -233,6 +233,143 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
 
+        {/* Pathfindr Advertisement Banner */}
+        <motion.a
+          href="https://thepathfindr.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="block mb-12 relative z-10 group"
+        >
+          <div className="max-w-5xl mx-auto relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-gradient-to-r from-indigo-900/40 via-blue-900/40 to-indigo-900/40 backdrop-blur-xl shadow-2xl shadow-indigo-500/10 hover:shadow-indigo-500/25 transition-all duration-500 hover:border-indigo-400/50">
+            {/* Animated background glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-[80px]" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[70px]" />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-6 p-6 lg:p-8">
+              {/* Left side - Logo & Branding */}
+              <div className="flex items-center gap-4 flex-shrink-0">
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                    <GraduationCap className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded text-[8px] font-bold bg-indigo-500/80 text-white uppercase tracking-wider">
+                    Beta
+                  </div>
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-mono text-indigo-400 uppercase tracking-widest mb-0.5">Discover</div>
+                  <div className="text-2xl font-bold text-white">Pathfindr</div>
+                </div>
+              </div>
+
+              {/* Center - SVG Illustration with Globe/Path theme */}
+              <div className="flex-1 w-full lg:max-w-xl">
+                <svg viewBox="0 0 500 100" className="w-full h-auto">
+                  {/* Curved path representing educational journey */}
+                  <path d="M 30 70 Q 130 20 250 70 T 470 70" stroke="url(#pathGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                  <path d="M 30 70 Q 130 20 250 70 T 470 70" stroke="url(#pathGradient)" strokeWidth="0.8" fill="none" strokeLinecap="round" strokeDasharray="6 10" className="animate-pulse" />
+
+                  {/* Opportunity nodes */}
+                  <g className="animate-pulse">
+                    <circle cx="30" cy="70" r="8" fill="#6366F1" opacity="0.9" />
+                    <circle cx="30" cy="70" r="4" fill="#A5B4FC" />
+                  </g>
+                  <g className="animate-pulse" style={{ animationDelay: '0.3s' } as any}>
+                    <circle cx="150" cy="35" r="6" fill="#3B82F6" opacity="0.8" />
+                    <circle cx="150" cy="35" r="3" fill="#93C5FD" />
+                  </g>
+                  <g className="animate-pulse" style={{ animationDelay: '0.6s' } as any}>
+                    <circle cx="250" cy="70" r="7" fill="#8B5CF6" opacity="0.9" />
+                    <circle cx="250" cy="70" r="3.5" fill="#C4B5FD" />
+                  </g>
+                  <g className="animate-pulse" style={{ animationDelay: '0.9s' } as any}>
+                    <circle cx="360" cy="40" r="6" fill="#06B6D4" opacity="0.8" />
+                    <circle cx="360" cy="40" r="3" fill="#67E8F9" />
+                  </g>
+                  <g className="animate-pulse" style={{ animationDelay: '1.2s' } as any}>
+                    <circle cx="470" cy="70" r="8" fill="#10B981" opacity="0.9" />
+                    <circle cx="470" cy="70" r="4" fill="#6EE7B7" />
+                  </g>
+
+                  {/* Node labels */}
+                  <text x="30" y="92" textAnchor="middle" fill="#818CF8" fontSize="8" fontFamily="monospace">Start</text>
+                  <text x="150" y="58" textAnchor="middle" fill="#60A5FA" fontSize="7" fontFamily="monospace">Scholarships</text>
+                  <text x="250" y="92" textAnchor="middle" fill="#A78BFA" fontSize="7" fontFamily="monospace">Universities</text>
+                  <text x="360" y="63" textAnchor="middle" fill="#2DD4BF" fontSize="7" fontFamily="monospace">Internships</text>
+                  <text x="470" y="92" textAnchor="middle" fill="#34D399" fontSize="8" fontFamily="monospace">Success</text>
+
+                  {/* Floating opportunity icons */}
+                  <g opacity="0.4">
+                    <circle cx="100" cy="25" r="3" fill="#818CF8">
+                      <animate attributeName="cy" values="25;18;25" dur="4s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="200" cy="50" r="2" fill="#60A5FA">
+                      <animate attributeName="cy" values="50;42;50" dur="3.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3.5s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="310" cy="30" r="2.5" fill="#A78BFA">
+                      <animate attributeName="cy" values="30;22;30" dur="4.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="4.5s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="420" cy="55" r="2" fill="#2DD4BF">
+                      <animate attributeName="cy" values="55;47;55" dur="3s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.4;0.15;0.4" dur="3s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+
+                  {/* Gradient definition */}
+                  <defs>
+                    <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#6366F1" />
+                      <stop offset="25%" stopColor="#3B82F6" />
+                      <stop offset="50%" stopColor="#8B5CF6" />
+                      <stop offset="75%" stopColor="#06B6D4" />
+                      <stop offset="100%" stopColor="#10B981" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              {/* Right side - CTA & Stats */}
+              <div className="flex flex-col items-center lg:items-end gap-3 flex-shrink-0">
+                <div className="text-sm text-white/70 text-center lg:text-right max-w-xs">
+                  Your path to global educational opportunities
+                </div>
+                <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-xl text-white font-semibold text-sm group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-indigo-500/30">
+                  <Search className="w-4 h-4" />
+                  Find Scholarships
+                  <ExternalLink className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom stats bar */}
+            <div className="relative z-10 px-8 pb-5">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-8 text-xs text-white/40 font-mono">
+                <div className="flex items-center gap-1.5">
+                  <Library className="w-3 h-3" />
+                  <span>10,000+ Scholarships</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Users className="w-3 h-3" />
+                  <span>5,000+ Students</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Globe className="w-3 h-3" />
+                  <span>50+ Countries</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.a>
+
         <header className="text-center mb-16 relative z-10">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -242,7 +379,7 @@ export default function Home() {
             <BrainCircuit className="w-4 h-4" />
             IGCSE COMPUTER SCIENCE EXAM SYSTEM
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
@@ -255,7 +392,7 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-xl text-white/50 max-w-2xl mx-auto"
           >
-            Interactive practice exams based on the latest 2025 assessment standards. 
+            Interactive practice exams based on the latest 2025 assessment standards.
             Real-time scoring, instant feedback, and digital reports.
           </motion.p>
         </header>
@@ -277,28 +414,28 @@ export default function Home() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-white/50 mb-2 uppercase tracking-wider">Candidate Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       required
                       placeholder="Jane Doe"
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium placeholder-white/20"
                       value={user.name}
-                      onChange={(e) => setUser({...user, name: e.target.value})}
+                      onChange={(e) => setUser({ ...user, name: e.target.value })}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-white/50 mb-2 uppercase tracking-wider">Email Address</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       required
                       placeholder="jane@example.com"
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium placeholder-white/20"
                       value={user.email}
-                      onChange={(e) => setUser({...user, email: e.target.value})}
+                      onChange={(e) => setUser({ ...user, email: e.target.value })}
                     />
                   </div>
                 </div>
-                <button 
+                <button
                   type="submit"
                   className="w-full h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/20 active:scale-95 flex items-center justify-center gap-3"
                 >
@@ -315,10 +452,10 @@ export default function Home() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <ExamEngine 
-                questions={activeQuestions} 
+              <ExamEngine
+                questions={activeQuestions}
                 durationMinutes={SAMPLE_EXAM.durationMinutes}
-                onComplete={handleComplete} 
+                onComplete={handleComplete}
               />
             </motion.div>
           )}
@@ -335,14 +472,14 @@ export default function Home() {
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Sparkles className="w-12 h-12" />
               </div>
-              
+
               <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-600/10 rounded-full mb-8">
                 <Award className="w-12 h-12 text-blue-500" />
               </div>
-              
+
               <h2 className="text-4xl font-bold mb-2">Exam Completed!</h2>
               <p className="text-white/40 mb-8 font-mono">ID: 0478_SAMPLE_TEST_2025</p>
-              
+
               <div className="flex justify-center items-end gap-2 mb-12">
                 <span className="text-8xl font-black text-blue-500">{results.score}</span>
                 <span className="text-3xl font-medium text-white/30 pb-3">/ {results.total}</span>
